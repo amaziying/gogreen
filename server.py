@@ -1,7 +1,4 @@
 from flask import Flask, render_template
-from flask_webpack import Webpack
-
-webpack = Webpack()
 
 def create_app():
     app = Flask(__name__)

@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "An boilerplate for flask-angular projects using webpack",
   "main": "index.js",
-  "scripts": {
-    "prestart": "npm install"
-  },
   "author": "FelixW",
   "license": "ISC",
   "devDependencies": {
