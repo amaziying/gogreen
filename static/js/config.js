@@ -4,6 +4,14 @@ function config($routeProvider, $locationProvider, $httpProvider) {
           templateUrl: 'static/views/home.html',
           controller: 'homeController'
       })
+      .when('/plant', {
+          templateUrl: 'static/views/plant.html',
+          controller: 'plantController'
+      })
+      .when('/community', {
+          templateUrl: 'static/views/community.html',
+          controller: 'communityController'
+      })
       .otherwise({
           redirectTo: '/'
       });
