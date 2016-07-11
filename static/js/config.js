@@ -12,6 +12,10 @@ function config($routeProvider, $locationProvider, $httpProvider) {
           templateUrl: 'static/views/community.html',
           controller: 'communityController'
       })
+      .when('/history', {
+          templateUrl: 'static/views/history.html',
+          controller: 'historyController'
+      })
       .otherwise({
           redirectTo: '/'
       });

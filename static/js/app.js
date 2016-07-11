@@ -3,6 +3,7 @@ import angularRoute from 'angular-route';
 import uiBootstrap from 'angular-ui-bootstrap';
 import config from './config';
 import homeController from './controllers/homeController';
+import historyController from './controllers/historyController';
 import mainController from './controllers/mainController';
 import plantController from './controllers/plantController';
 import communityController from './controllers/communityController';
@@ -15,6 +16,7 @@ var app = angular.module(moduleName, [
  'ngRoute', 'ui.bootstrap'
 ]).config(config)
   .controller('mainController', mainController)
+  .controller('historyController', historyController)
   .controller('homeController', homeController)
   .controller('plantController', plantController)
   .controller('communityController', communityController);
