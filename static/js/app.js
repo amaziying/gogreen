@@ -18,9 +18,4 @@ var app = angular.module(moduleName, [
   .controller('plantController', plantController)
   .controller('communityController', communityController);
 
-// app.config(['$interpolateProvider', function($interpolateProvider) {
-//     $interpolateProvider.startSymbol('{[');
-//     $interpolateProvider.endSymbol(']}');
-//   }]);
-
 export default moduleName;
