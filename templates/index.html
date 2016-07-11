@@ -15,7 +15,12 @@
         <link rel="stylesheet" type="text/css" href="static/css/main.css">
    	</head>
     <body ng-app="app" ng-controller="mainController">
-        <header class="score-bar-container">zzz</header>
+        <header class="score-bar-container">
+            <img id="point-icon" src="static/img/Point_icon.png">
+            <div class="score-bar-textbox">{{score}}</div>
+            <div id="user-level">{{levelNumber}}</div>
+            <div class="score-bar-textbox score-bar-level">{{levelName}}</div>
+        </header>
         <div ng-view></div>
         <div class="bottom-menu">
           <nav class="navbar navbar-default navbar-fixed-bottom">
