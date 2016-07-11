@@ -3,6 +3,7 @@
     <head>
     	<title>Go Green</title>
         <script src="static/bundle.js"></script>
+        <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -20,6 +21,17 @@
             <div class="score-bar-textbox">{{score}}</div>
             <div id="user-level">{{levelNumber}}</div>
             <div class="score-bar-textbox score-bar-level">{{levelName}}</div>
+            <div class="progress-bar-element" ng-repeat="progressElem in progressBar">
+                <div ng-if="progressElem.imgName && progressElem.filled">
+                    <img ng-src="static/img/{{progressElem.imgName}}_filled.png">
+                </div>
+                <div ng-if="progressElem.imgName && !progressElem.filled">
+                    <img ng-src="static/img/{{progressElem.imgName}}.png">
+                </div>
+                <div ng-if="!progressElem.imgName" class="progress-dot" ng-class="{'filled': progressElem.filled, 'open': !progressElem.filled}">
+                </div>
+            </div>
+            <div class="progress-bar-element progress-info">{{goal - score}} points to Level {{levelNumber + 1}}</div>
         </header>
         <div ng-view></div>
         <div class="bottom-menu">
