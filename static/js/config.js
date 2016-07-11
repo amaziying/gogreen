@@ -16,7 +16,8 @@ function config($routeProvider, $locationProvider, $httpProvider) {
           redirectTo: '/'
       });
 
-  config.$inject = ['$routeProvider', "$locationProvider", "$httpProvider"];
 }
+
+config.$inject = ['$routeProvider', "$locationProvider", "$httpProvider"];
 
 export default config;
