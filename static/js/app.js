@@ -7,6 +7,7 @@ import mainController from './controllers/mainController';
 import plantController from './controllers/plantController';
 import communityController from './controllers/communityController';
 import 'babel-polyfill';
+import 'jquery';
 //configuration could be updated and seperated into different files if needed
 
 var moduleName = "app";
