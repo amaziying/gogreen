@@ -1,6 +1,52 @@
+body {
+	font-family: Helvetica;
+}
+
 header.score-bar-container {
 	margin: 0;
-	padding: 20px;
+	padding: 0;
 	background-color: #6cb0a4;
 	height: 75px;
+}
+
+img#point-icon {
+	top: 13px;
+	left: 43px;
+	position: relative;
+	z-index: 9000;
+}
+
+div#user-level {
+	display: inline-block;
+	position:relative;
+	line-height: 50px;
+	top: 15px;
+	left: 50px;
+	width: 50px;
+	height: 50px;
+	font-size: 20px;
+	text-align: center;
+	border-radius: 25px;
+	background-color: #f5d428;
+	z-index: 9000;
+}
+
+.score-bar-textbox {
+	display: inline-block;
+	position: relative;
+	padding-left: 45px;
+	font-size: 18px;
+	font-color: #231f20;
+	top: 13px;
+	left: 13px;
+	width: 100px;
+	height: 30px;
+	border-radius:10px;
+	background-color: #FFF;
+}
+
+.score-bar-level {
+	top: 13px;
+	left: 20px;
+	width: 170px;
 }

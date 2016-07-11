@@ -13,7 +13,7 @@ var moduleName = "app";
 var app = angular.module(moduleName, [
  'ngRoute', 'ui.bootstrap'
 ]).config(config)
-  .controller('mainController', mainController)
+  .controller('mainController', ['$scope', '$http', '$timeout', mainController])
   .controller('homeController', homeController)
   .controller('plantController', plantController)
   .controller('communityController', communityController);
