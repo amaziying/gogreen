@@ -3,6 +3,7 @@ import angularRoute from 'angular-route';
 import uiBootstrap from 'angular-ui-bootstrap';
 import config from './config';
 import homeController from './controllers/homeController';
+import mainController from './controllers/mainController';
 import plantController from './controllers/plantController';
 import communityController from './controllers/communityController';
 import 'babel-polyfill';
@@ -10,10 +11,16 @@ import 'babel-polyfill';
 
 var moduleName = "app";
 var app = angular.module(moduleName, [
- 'ngRoute', 'ui.bootstrap',
+ 'ngRoute', 'ui.bootstrap'
 ]).config(config)
+  .controller('mainController', mainController)
   .controller('homeController', homeController)
   .controller('plantController', plantController)
   .controller('communityController', communityController);
+
+// app.config(['$interpolateProvider', function($interpolateProvider) {
+//     $interpolateProvider.startSymbol('{[');
+//     $interpolateProvider.endSymbol(']}');
+//   }]);
 
 export default moduleName;
