@@ -1,4 +1,7 @@
 var webpack = require('webpack');
+var $ = require('jquery');
+window.jQuery = $;
+window.$ = $;
 
 var APP = __dirname;
 
@@ -35,8 +38,10 @@ module.exports = {
     },
 
     plugins: [ //expose jquery
-    	new webpack.ProvidePlugin({
-    		$: "jquery"
-    	})
+      new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery",
+          "window.jQuery": "jquery"
+      })
     ]
 };
