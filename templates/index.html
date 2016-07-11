@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en" ng-app="app" >
     <head>
     	<title>Flask-Angular-Webpack</title>
     	<script src="static/bundle.js"></script>
    	</head>
-    <body >
-      <div ng-view></div>
+    <body>
+      <div ng-controller="mainController">
+        {{data}}
+        <div ng-view></div>
+      </div>
 	</body>
 	<footer>
 	</footer>
