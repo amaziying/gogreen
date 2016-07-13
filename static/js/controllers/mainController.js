@@ -49,9 +49,7 @@ function mainController($scope, $http, $timeout, $location){
   		$scope.levelNumber++;
   		incrementDot();
   	}
-<<<<<<< HEAD
   };
-  // incrementScore();
 
   $scope.route = function(page){
     $location.path("/#/" + page);
@@ -67,8 +65,7 @@ function mainController($scope, $http, $timeout, $location){
     console.log(active);
     return active;
   };
-=======
-  }
+
 
   function incrementDot() {
   	for (var i = 0; i < $scope.progressBar.length; i++) {
@@ -80,7 +77,6 @@ function mainController($scope, $http, $timeout, $location){
   }
 
   incrementScore();
->>>>>>> 07ee3663d5d9d4ff50e9a489556719dc4dd4e5a9
 };
 
 export default mainController;
