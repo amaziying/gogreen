@@ -60,9 +60,6 @@ function mainController($scope, $http, $timeout, $location){
   $scope.isActive = function(page){
     var view = '/'+page;
     var active = (view === $location.path());
-    console.log(view);
-    console.log($location.path());
-    console.log(active);
     return active;
   };
 
