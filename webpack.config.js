@@ -1,7 +1,5 @@
 var webpack = require('webpack');
 var $ = require('jquery');
-window.jQuery = $;
-window.$ = $;
 
 var APP = __dirname;
 

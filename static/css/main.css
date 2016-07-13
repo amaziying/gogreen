@@ -52,9 +52,13 @@ div#user-level {
 }
 
 .navbar-fixed-bottom .container-fluid{
-	background-color: #6cb0a4;
+	background-color: #4d8078;
 	height: 98px;
 
+}
+
+.wrapper{
+	padding: 0;
 }
 
 .nav-ul{
@@ -64,10 +68,10 @@ div#user-level {
 }
 
 .nav-ul li{
-	width: 24.5%;
+	width: 33.07%;
 	display: inline-block;
 	line-height: 98px;
-	vertical-align: middle;
+	/*vertical-align: middle;*/
 	text-align: center;
 	margin:0;
 }
@@ -75,4 +79,37 @@ div#user-level {
 .nav-ul li a{
 	text-decoration: none;
 	color: #fff;
+}
+
+.nav-ul li a span{
+	position: relative;
+	bottom: -25px;
+}
+
+.link-wrapper{
+	height:100%;
+	line-height: 98px;
+	/*vertical-align: middle;*/
+	text-align: center;
+}
+
+.icon{
+	position: absolute;
+	top:16%;
+}
+
+.icon-one{
+	left: 14.4%;
+}
+
+.icon-two{
+	left: 48%;
+}
+
+.icon-three{
+	left: 81.25%;
+}
+
+.active{
+	background-color:#77c5b9;
 }

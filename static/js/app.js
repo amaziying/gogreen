@@ -16,7 +16,7 @@ var app = angular.module(moduleName, [
  'ngRoute', 'ui.bootstrap'
 ]).config(config)
   .controller('historyController', historyController)
-  .controller('mainController', ['$scope', '$http', '$timeout', mainController])
+  .controller('mainController', ['$scope', '$http', '$timeout','$location', mainController])
   .controller('homeController', homeController)
   .controller('plantController', plantController)
   .controller('communityController', communityController);
