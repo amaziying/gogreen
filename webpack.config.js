@@ -1,6 +1,4 @@
 var webpack = require('webpack');
-var $ = require('jquery');
-
 var APP = __dirname;
 
 module.exports = {
