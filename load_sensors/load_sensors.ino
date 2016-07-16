@@ -5,11 +5,8 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-//  int val = analogRead(A0);
-//  float voltage = val * (5.0 / 1023.0);
-
-  
-  String x = "hello";
-  
-  Serial.println(x); 
+  int val = analogRead(A0);
+  float voltage = val * (5.0 / 1023.0);
+  Serial.println(voltage); 
+  delay(2000);
 }
