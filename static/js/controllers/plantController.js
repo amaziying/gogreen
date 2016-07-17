@@ -76,7 +76,7 @@ function plantController($scope, $http){
 			}
 		}
 	}
-	
+
 	$scope.plantTree = function(cell){
 		if(cell.state == 0){
 			if($scope.isShovelActive){
@@ -87,7 +87,7 @@ function plantController($scope, $http){
 					alert(noMorePointsReminder);
 				}
 			}
-			else if($scope.isWaterActive || $scope.selectedSeed){
+			else if($scope.isWaterActive || $scope.selectedSeed >= 0){
 				alert(shovelReminder);
 			}
 		}
@@ -122,7 +122,7 @@ function plantController($scope, $http){
 					alert(noMorePointsReminder);
 				}
 			}
-			else if($scope.isShovelActive || $scope.selectedSeed){
+			else if($scope.isShovelActive || $scope.selectedSeed >= 0){
 				alert(waterReminder);
 			}
 		}		
