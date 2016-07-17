@@ -1,5 +1,6 @@
-function homeController($scope, $http, scoringService){
+function homeController($scope, $http, $timeout, scoringService){
 	//initialize homecontroller
+	$scope.showScoreUpdate = false;
 	$scope.levels = {
 		low: {
 			className: 'green',
@@ -7,21 +8,30 @@ function homeController($scope, $http, scoringService){
 		},
 		med: {
 			className: 'orange',
-			message: ''
+			message: 'Looks like there is a lot of garbage in the can! You will be rewarded with less points as the can becomes more full!'
 		},
 		high: {
 			className: 'red',
-			message: ''
+			message: 'Oh no, too much garbage in the can! To earn maximum points, throw out less waste next time!'
 		}
 	};
 
 	function updateScore(newScore) {
 		$scope.score = newScore;
+		$scope.showScoreUpdate = true;
+		$timeout(function() {
+			$scope.showScoreUpdate = false;
+		}, 1000);
+	}
+
+
+	function updateWeightLevel(low) {
+
 	}
 
 	scoringService.subscribe(updateScore);
 
-	$scope.statusLevel = 'low';
+	$scope.statusLevel = 'med';
 	$scope.countdown = '00:10:45';
 	$scope.pointIncrementLevel = 50;
 	$scope.treesPlanted = 20;

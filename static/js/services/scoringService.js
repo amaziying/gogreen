@@ -32,7 +32,7 @@ function scoringService ($timeout) {
         });
 
         if (currentScore < 4000) {
-            $timeout(incrementScore, 1000);
+            $timeout(incrementScore, 3000);
         }
     }
     incrementScore();
