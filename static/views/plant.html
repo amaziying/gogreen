@@ -1,3 +1,45 @@
 <div>
-  <p>Plant trees here!</p>
+  <div class="plant">
+  	<div class="toolkits">
+  	  <div class="sandbox">
+  	  	<div class="tools watercan">
+  	  		<div class="toolsimg">
+  	  			<img ng-src="static/img/plant/Watercan_icon.png">
+  	  		</div>
+  	  		<div class="toolstxt">
+  	  			15 Points
+  	  		</div>
+  	  	</div>
+  	  	<div class="tools shovel">
+  	  		<div class="toolsimg">
+  	  			<img ng-src="static/img/plant/Shovel_icon.png">
+  	  		</div>
+  	  		<div class="toolstxt">
+  	  			10 Points
+  	  		</div>
+  	  	</div>
+   	  </div>
+  	  <div class="seedbox">
+  	  	<div class="seeds-list">
+  	  		<div class="seeds" ng-repeat="seed in seeds">
+  	  			<div class="seeds-img">
+  	  				<img ng-src="static/img/plant/{{seed.imgName}}.png">
+  	  			</div>
+  	  			<div class="seeds-amount">
+  	  				x {{seed.amount}}
+  	  			</div>
+  	  			<div class="seeds-name">
+  	  				{{seed.name}}
+  	  			</div>
+  	  		</div>
+  	  	</div>
+  	  	<div class="buymore">
+  	  		<button class="buymore-btn">Buy More</button>
+  	  	</div>
+  		</div>
+  	</div>
+  	<div class="garden">
+  	</div>
+    <p>Plant trees here!</p>
+  </div>
 </div>

@@ -1,0 +1,96 @@
+	.plant {
+		background-color: #a7d85b;
+		padding: 55px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+	.toolkits {
+		display: inline-block;
+		width: 280px;
+		height: 485px;
+		vertical-align: top; /* fix bug where inline divs misalign vertically */
+	}
+	.toolkits > div {
+		width: 100%;
+	}
+	.sandbox {
+		background-image: url(../img/plant/sandbox.png);
+		background-size: 280px 215px;
+		height: 215px;
+		margin: 10px 0px;
+		padding: 10%;
+	}
+	.seedbox {
+		background-image: url(../img/plant/picnic.png);
+		background-size: 280px 250px;		
+		height: 250px;
+		padding: 10%;
+	}
+	.garden {
+		padding: 5px;
+		margin-left: 30px;
+		display: inline-block;
+		width: 595px;
+		height: 485px;
+		background-image: url(../img/plant/Grass_frame.png);
+		background-size: 605px 495px;
+		vertical-align: top; /* fix bug where inline divs misalign vertically */
+	}
+	.tools {
+		width: 46%;
+		display: inline-block;
+		margin: 0 auto;
+	}
+	.toolsimg {
+		margin: 0 auto;
+	}
+	.toolsimg img{
+		display: block;
+		margin: 0 auto;
+	}
+	.toolstxt {
+		margin-top: 15px;
+		text-align: center;
+	}
+	.seeds-list {
+		margin: 20px 0;
+	}
+	.seeds {
+		margin: 0 auto;
+		padding: 5px;
+	}
+	.seeds div {
+		vertical-align: middle;
+		line-height: 90%;
+	}
+	.seeds-img {
+		display: inline-block;
+		width: 29%;
+	}
+	.seeds-amount {
+		display: inline-block;
+		width: 19%;
+	}
+	.seeds-name {
+		display: inline-block;
+		width: 47%;
+	}
+	.buymore {
+		height: 40px;
+		margin: 0 auto;
+		width: 120px;
+	}
+	.buymore-btn {
+		font-size: 22px;
+		font-weight: normal;
+		border: none;
+		width: 100%;
+		color: #fff;
+		text-align: center;
+		background-color: #a7d85b;
+	}
+	.buymore-btn:active {
+		border: none;
+		background: #bce283;
+	}
+	
