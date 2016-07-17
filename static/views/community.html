@@ -8,7 +8,7 @@
         </span>
       </p>
       <div class='table-wrapper'>
-        <table st-table="userCollection" class="scoreboard">
+        <table st-table="displayedCollection" st-safe-src="userCollection" class="scoreboard">
 
           	<thead>
             	<tr class='header'>
@@ -20,13 +20,13 @@
           	</thead>
 
         	<tbody>
-        	<tr ng-repeat="user in userCollection">
+        	<tr ng-class="{current: {{user.id === 1}}}" ng-repeat="user in (filteredItems = (displayedCollection | orderBy: '-score'))" >
         		<td class="rank" ng-if="$index === 0"><img src='static/img/community_rank1.png'></td>
             <td class="rank" ng-if="$index === 1"><img src='static/img/community_rank2.png'></td>
             <td class="rank" ng-if="$index === 2"><img src='static/img/community_rank3.png'></td>
             <td class="rank" ng-if="$index > 2">{{$index +1}}</td>
         		<td class='table-cell'><img src='static/img/community_rank2.png'>{{user.name}}</td>
-        		<td class='table-cell'>{{user.score}}</td>
+            <td class='table-cell'>{{user.score}}</td>
         		<td class='table-cell'>{{user.level}}</td>
         	</tr>
         	</tbody>
@@ -39,9 +39,9 @@
       <img class='profile' src='static/img/community_rank2.png'/>
       <p class='name'>{{dataCollection[0].name}}</p>
       <p class='info-title'>My Score</p>
-      <p class='number'>{{dataCollection[0].score}}</p>
+      <p class='number'>{{score}}</p>
       <p class='info-title'>My Rank</p>
-      <p class='number'>{{dataCollection[0].score}}</p>
+      <p class='number'>{{rank}}</p>
       <p class='info-title'>Trees Planted</p>
       <p class='number'>{{dataCollection[0].trees}}</p>
     </div>

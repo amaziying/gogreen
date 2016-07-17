@@ -22,6 +22,6 @@ var app = angular.module(moduleName, [
   .controller('mainController', ['$scope', '$http','$location', 'scoringService', mainController])
   .controller('homeController', ['$scope', '$http', 'scoringService', homeController])
   .controller('plantController', plantController)
-  .controller('communityController', communityController);
+  .controller('communityController', ['$scope', '$http', 'orderByFilter', 'scoringService', communityController]);
 
 export default moduleName;
