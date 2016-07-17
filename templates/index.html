@@ -14,6 +14,7 @@
         <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
 
         <link rel="stylesheet" type="text/css" href="static/css/main.css">
+        <link rel="stylesheet" type="text/css" href="static/css/community.css">
    	</head>
     <body ng-app="app" ng-controller="mainController">
         <header class="score-bar-container">
@@ -33,7 +34,7 @@
             </div>
             <div class="progress-bar-element progress-info">{{goal - score}} points to Level {{levelNumber + 1}}</div>
         </header>
-        <div ng-view></div>
+        <div class="container-view" ng-view></div>
         <div class="bottom-menu">
           <nav class="navbar-fixed-bottom">
             <div class="container-fluid wrapper">
