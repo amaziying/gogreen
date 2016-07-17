@@ -22,8 +22,8 @@
   	  <div class="seedbox">
   	  	<div class="seeds-list">
   	  		<div class="seeds" ng-repeat="seed in seeds" ng-click="selectSeed(seed)" ng-class="{'seed-selected': selectedSeed==seed.treeCode}">
-  	  			<div class="img-container seeds-img">
-  	  				<img ng-src="static/img/plant/{{seed.imgName}}.png">
+  	  			<div class="img-container seeds-img" 
+                 ng-class="{'oak-seed': seed.treeCode==0, 'evergreen-seed': seed.treeCode==1, 'maple-seed': seed.treeCode==2}">
   	  			</div>
   	  			<div class="seeds-amount">
   	  				x {{seed.amount}}

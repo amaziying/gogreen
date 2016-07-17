@@ -56,9 +56,11 @@
 		text-align: center;
 	}
 	.seeds-list {
+		height: 60%;
 		margin: 20px 0;
 	}
 	.seeds {
+		height: 33%;
 		margin: 8px auto;
 		padding: 5px;
 	}
@@ -70,8 +72,24 @@
 		box-shadow: 0 0 30px yellow;	
 	}
 	.seeds-img {
+		height: 100%;
 		display: inline-block;
 		width: 29%;
+	}
+	.oak-seed {
+		background: url(../img/plant/Oak_seed.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.evergreen-seed {
+		background: url(../img/plant/Evergreen_seed.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.maple-seed {
+		background: url(../img/plant/Maple_seed.png);
+		background-size: contain;
+		background-repeat: no-repeat;
 	}
 	.seeds-amount {
 		display: inline-block;
