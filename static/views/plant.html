@@ -3,16 +3,16 @@
   	<div class="toolkits">
   	  <div class="sandbox">
   	  	<div class="tools watercan">
-  	  		<div class="toolsimg">
-  	  			<img ng-src="static/img/plant/Watercan_icon.png">
+  	  		<div class="img-container">
+  	  			<img ng-src="static/img/plant/Watercan_icon.png" ng-click="useWater()" ng-class="{'selected-tool': isWaterActive}">
   	  		</div>
   	  		<div class="toolstxt">
   	  			15 Points
   	  		</div>
   	  	</div>
   	  	<div class="tools shovel">
-  	  		<div class="toolsimg">
-  	  			<img ng-src="static/img/plant/Shovel_icon.png">
+  	  		<div class="img-container">
+  	  			<img ng-src="static/img/plant/Shovel_icon.png" ng-click="useShovel()" ng-class="{'selected-tool': isShovelActive}">
   	  		</div>
   	  		<div class="toolstxt">
   	  			10 Points
@@ -21,8 +21,8 @@
    	  </div>
   	  <div class="seedbox">
   	  	<div class="seeds-list">
-  	  		<div class="seeds" ng-repeat="seed in seeds">
-  	  			<div class="seeds-img">
+  	  		<div class="seeds" ng-repeat="seed in seeds" ng-click="selectSeed(seed)" ng-class="{'seed-selected': selectedSeed==seed.treeName}">
+  	  			<div class="img-container seeds-img">
   	  				<img ng-src="static/img/plant/{{seed.imgName}}.png">
   	  			</div>
   	  			<div class="seeds-amount">
@@ -39,6 +39,29 @@
   		</div>
   	</div>
   	<div class="garden">
+  		<div class="garden-grid">
+  			<div class="garden-row" ng-repeat="row in grid track by $index">
+  				<div class="garden-cell" ng-repeat="cell in row track by $index" ng-switch="cell.state"  ng-click="plantTree(cell)">
+  					<div ng-switch-when="0" class="img-container">
+  					</div>
+  					<div ng-switch-when="1" class="img-container">
+  	  				<img ng-src="static/img/plant/Dughole.png">
+  					</div> 
+  					<div ng-switch-when="2" class="img-container">
+  	  				<img ng-src="static/img/plant/Sprout.png">
+  					</div>
+  					<div ng-switch-when="3" class="img-container">
+  	  				<img ng-src="static/img/plant/Oak.png">
+  					</div> 
+  					<div ng-switch-when="4" class="img-container">
+  	  				<img ng-src="static/img/plant/Evergreen.png">
+  					</div>
+  					<div ng-switch-when="5" class="img-container">
+  	  				<img ng-src="static/img/plant/Maple.png">
+  					</div>  					  					 					 					
+  				</div>
+  			</div>
+  		</div>	
   	</div>
     <p>Plant trees here!</p>
   </div>

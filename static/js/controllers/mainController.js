@@ -1,7 +1,7 @@
 function mainController($scope, $http, $timeout, $location){
   $scope.score = 0;
   $scope.levelNumber = 1;
-  $scope.goal = 2000
+  $scope.goal = 2000;
   $scope.levelName = 'Green Buddy';
 
   $scope.progressBar = [{
