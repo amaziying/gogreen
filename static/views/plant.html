@@ -1,5 +1,5 @@
 <div>
-  <div class="plant">
+  <div class="plant" ng-class="{'hidden-page': currentSeedPage>=0, }">
   	<div class="toolkits">
   	  <div class="sandbox">
   	  	<div class="tools watercan">
@@ -21,7 +21,7 @@
    	  </div>
   	  <div class="seedbox">
   	  	<div class="seeds-list">
-  	  		<div class="seeds" ng-repeat="seed in seeds" ng-click="selectSeed(seed)" ng-class="{'seed-selected': selectedSeed==seed.treeName}">
+  	  		<div class="seeds" ng-repeat="seed in seeds" ng-click="selectSeed(seed)" ng-class="{'seed-selected': selectedSeed==seed.treeCode}">
   	  			<div class="img-container seeds-img">
   	  				<img ng-src="static/img/plant/{{seed.imgName}}.png">
   	  			</div>
@@ -34,7 +34,7 @@
   	  		</div>
   	  	</div>
   	  	<div class="buymore">
-  	  		<button class="buymore-btn">Buy More</button>
+  	  		<button class="buymore-btn" ng-click="browseSeeds()">Buy More</button>
   	  	</div>
   		</div>
   	</div>
@@ -63,6 +63,18 @@
   			</div>
   		</div>	
   	</div>
-    <p>Plant trees here!</p>
+  </div>
+  <div class="buy-seeds-page" 
+  		 ng-class="{'hidden-page': currentSeedPage<0, 
+  		 						'oak-page': currentSeedPage==0, 
+  		 						'evergreen-page': currentSeedPage==1, 
+  		 						'maple-page': currentSeedPage==2}">
+  	<div class="arrows-container">
+  		<button class="left-arrow" ng-click="leftNav()"><img src="static/img/plant/Left_Arrow.png"></button>
+  		<button class="right-arrow" ng-click="rightNav()"><img src="static/img/plant/Right_Arrow.png"></button>
+  	</div>
+  	<div class="buy-seeds">
+  	  <button class="buymore-btn" ng-click="buySeeds()">Buy Seeds</button>
+  	</div>
   </div>
 </div>

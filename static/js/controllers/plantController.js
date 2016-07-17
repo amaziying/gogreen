@@ -1,6 +1,7 @@
 function plantController($scope, $http){
 	$scope.data = "data";
 
+	$scope.currentSeedPage = -1;
 	$scope.isWaterActive = false;
 	$scope.isShovelActive = false;	
 	$scope.selectedSeed = "";
@@ -28,26 +29,26 @@ function plantController($scope, $http){
 	$scope.selectSeed = function(seed){
 		$scope.isWaterActive = false;
 		$scope.isShovelActive = false;
-		if(seed.treeName){
-			$scope.selectedSeed = seed.treeName;
+		if(seed.treeCode){
+			$scope.selectedSeed = seed.treeCode;
 		}
 	};
 
 	$scope.seeds = [
 		{
-			"treeName" : "oak",
+			"treeCode" : "0",
 			"imgName:": "Oak_seed",
 		 	"amount": 1,
 		 	"name": "Oak Tree"
 		},
 		{
-			"treeName" : "evergreen",
+			"treeCode" : "1",
 			"imgName:": "Evergreen_seed",
 		 	"amount": 1,
 		 	"name": "Evergreen Tree"
 		},
 		{
-			"treeName" : "maple",
+			"treeCode" : "2",
 			"imgName:": "Maple_seed",
 		 	"amount": 1,
 		 	"name": "Maple Tree"
@@ -76,13 +77,13 @@ function plantController($scope, $http){
 		}
 		else if(cell.state == 2){
 			if($scope.isWaterActive){
-				if(cell.type == "oak"){
+				if(cell.type == 0){
 					cell.state = 3;
 				}
-				if(cell.type == "evergreen"){
+				if(cell.type == 1){
 					cell.state = 4;
 				}
-				if(cell.type == "maple"){
+				if(cell.type == 2){
 					cell.state = 5;
 				}
 			}
@@ -97,12 +98,35 @@ function plantController($scope, $http){
 		$scope.grid[i] = [];
 		for(var j = 0; j < 7; j++){
 			$scope.grid[i][j] = {
-				"type": "",
-				"state": "0"
+				"type": "", // 0=oak, 1=evergreen, 2=maple
+				"state": "0" // 0=nothing, 1=mound, 2=sprout, 3=oak, 4=evergreen, 5=maple
 			}
 		}
 	}
 
+	$scope.browseSeeds = function(){
+		$scope.currentSeedPage = 0;
+	};
+
+	$scope.buySeeds = function(){
+		$scope.currentSeedPage = -1;
+	};
+
+	$scope.leftNav = function(){
+		if($scope.currentSeedPage == 0){
+			$scope.currentSeedPage = $scope.seeds.length - 1;
+		} else {
+			$scope.currentSeedPage--;			
+		}
+	};
+
+	$scope.rightNav = function(){
+		if($scope.currentSeedPage == $scope.seeds.length - 1){
+			$scope.currentSeedPage = 0;
+		} else {
+			$scope.currentSeedPage++;			
+		}
+	}
 
 	console.log("Plant Trees Here!");
 };
