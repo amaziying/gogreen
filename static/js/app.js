@@ -20,7 +20,7 @@ var app = angular.module(moduleName, [
   .factory('scoringService', ['$timeout', scoringService])
   .controller('historyController', historyController)
   .controller('mainController', ['$scope', '$http','$location', 'scoringService', mainController])
-  .controller('homeController', ['$scope', '$http', 'scoringService', homeController])
+  .controller('homeController', ['$scope', '$http', '$timeout', 'scoringService', homeController])
   .controller('plantController', plantController)
   .controller('communityController', communityController);
 

@@ -165,6 +165,20 @@ div#user-level {
     top: 0; left: 0; bottom: 0; right: 0;
 }
 
+.score-pop-up {
+    background-color: #FFF;
+    position: absolute;
+    top: 240px;
+    left: 420px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 21px;
+    text-align: center;
+    padding-top: 9px;
+    font-weight: 500;
+}
+
 .status-container {
     display: inline-block;
     position: absolute;
@@ -227,4 +241,20 @@ div#user-level {
 
 .green-background {
     background-color: #92c350
+}
+
+.orange {
+    color: #FE914C;
+}
+
+.orange-background {
+    background-color: #FE914C;
+}
+
+.red {
+    color: #FB474D;
+}
+
+.red-background {
+    background-color: #FB474D;
 }
