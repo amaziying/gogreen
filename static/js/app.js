@@ -7,6 +7,7 @@ import historyController from './controllers/historyController';
 import mainController from './controllers/mainController';
 import plantController from './controllers/plantController';
 import communityController from './controllers/communityController';
+import scoringService from './services/scoringService';
 import 'babel-polyfill';
 import 'jquery';
 //configuration could be updated and seperated into different files if needed
@@ -15,9 +16,10 @@ var moduleName = "app";
 var app = angular.module(moduleName, [
  'ngRoute', 'ui.bootstrap'
 ]).config(config)
+  .factory('scoringService', ['$timeout', scoringService])
   .controller('historyController', historyController)
-  .controller('mainController', ['$scope', '$http', '$timeout','$location', mainController])
-  .controller('homeController', homeController)
+  .controller('mainController', ['$scope', '$http','$location', 'scoringService', mainController])
+  .controller('homeController', ['$scope', '$http', 'scoringService', homeController])
   .controller('plantController', plantController)
   .controller('communityController', communityController);
 
