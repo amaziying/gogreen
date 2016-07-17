@@ -15,24 +15,22 @@
 
         <link rel="stylesheet" type="text/css" href="static/css/main.css">
         <link rel="stylesheet" type="text/css" href="static/css/community.css">
+        <link rel="stylesheet" type="text/css" href="static/css/plant.css">
    	</head>
     <body ng-app="app" ng-controller="mainController">
         <header class="score-bar-container">
             <img id="point-icon" src="static/img/Point_icon.png">
             <div class="score-bar-textbox">{{score}}</div>
-            <div id="user-level">{{levelNumber}}</div>
-            <div class="score-bar-textbox score-bar-level">{{levelName}}</div>
+            <div id="user-level">{{userLevel.level}}</div>
+            <div class="score-bar-textbox score-bar-level">{{userLevel.levelName}}</div>
             <div class="progress-bar-element" ng-repeat="progressElem in progressBar">
-                <div ng-if="progressElem.imgName && progressElem.filled">
-                    <img ng-src="static/img/{{progressElem.imgName}}_filled.png">
-                </div>
-                <div ng-if="progressElem.imgName && !progressElem.filled">
-                    <img ng-src="static/img/{{progressElem.imgName}}.png">
+                <div ng-if="progressElem.imgName">
+                    <img ng-src="static/img/{{progressElem.imgName + (progressElem.filled ? '_filled' : '')}}.png">
                 </div>
                 <div ng-if="!progressElem.imgName" class="progress-dot" ng-class="{'filled': progressElem.filled, 'open': !progressElem.filled}">
                 </div>
             </div>
-            <div class="progress-bar-element progress-info">{{goal - score}} points to Level {{levelNumber + 1}}</div>
+            <div class="progress-bar-element progress-info">{{goalMetrics.pointsUntilUpgrade}} points to Level {{userLevel.level + 1}}</div>
         </header>
         <div class="container-view" ng-view></div>
         <div class="bottom-menu">

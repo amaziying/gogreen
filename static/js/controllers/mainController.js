@@ -1,55 +1,51 @@
-function mainController($scope, $http, $timeout, $location){
-  $scope.score = 0;
-  $scope.levelNumber = 1;
-  $scope.goal = 2000
-  $scope.levelName = 'Green Buddy';
-
+function mainController($scope, $http, $location, scoringService){
   $scope.progressBar = [{
-  	imgName: 'Progress_1',
-  	filled: true
+    imgName: 'Progress_1',
+    filled: true
   }, {
-  	filled: false
+    filled: false
   }, {
-  	filled: false
+    filled: false
   }, {
-  	filled: false
+    filled: false
   }, {
-  	imgName: 'Progress_2',
-  	filled: false
+    imgName: 'Progress_2',
+    filled: false
   }, {
-  	filled: false
+    filled: false
   }, {
-  	filled: false
+    filled: false
   }, {
-  	filled: false
+    filled: false
   }, {
-  	imgName: 'Progress_3',
-  	filled: false
+    imgName: 'Progress_3',
+    filled: false
   }, {
-  	filled: false
+    filled: false
   }, {
-  	filled: false
+    filled: false
   }, {
-  	filled: false
+    filled: false
   }, {
-  	imgName: 'Progress_4',
-  	filled: false
+    imgName: 'Progress_4',
+    filled: false
   }];
 
-  function incrementScore() {
-  	$scope.score = $scope.score + 1;
+  function updateProgressBar(perc) {
+    for (var i = 0; i < $scope.progressBar.length; i++) {
+      $scope.progressBar[i].filled = perc < (i)/12 ? false : true;
+    }
+  }
 
-  	if ($scope.score%Math.round($scope.goal/12) === 0) {
-  		incrementDot();
-  	}
-  	if ($scope.score < $scope.goal) {
-  		$timeout(incrementScore, 10);
-  	} else {
-  		$scope.levelName = 'Green Ninja';
-  		$scope.levelNumber++;
-  		incrementDot();
-  	}
-  };
+  function updateScore (newScore) {
+    $scope.score = newScore;
+    $scope.userLevel = scoringService.getUserLevel();
+    $scope.goalMetrics = scoringService.getGoalMetrics();
+    updateProgressBar($scope.goalMetrics.progressPercentage);
+  }
+
+  scoringService.subscribe(updateScore);
+
 
   $scope.route = function(page){
     $location.path("/#/" + page);
@@ -62,18 +58,6 @@ function mainController($scope, $http, $timeout, $location){
     var active = (view === $location.path());
     return active;
   };
-
-
-  function incrementDot() {
-  	for (var i = 0; i < $scope.progressBar.length; i++) {
-  		if (!$scope.progressBar[i].filled){
-  			$scope.progressBar[i].filled = true;
-  			break;
-  		}
-  	}
-  }
-
-  incrementScore();
 };
 
 export default mainController;

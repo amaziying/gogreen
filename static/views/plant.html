@@ -1,3 +1,80 @@
 <div>
-  <p>Plant trees here!</p>
+  <div class="plant" ng-class="{'hidden-page': currentSeedPage>=0, }">
+  	<div class="toolkits">
+  	  <div class="sandbox">
+  	  	<div class="tools watercan">
+  	  		<div class="img-container">
+  	  			<img ng-src="static/img/plant/Watercan_icon.png" ng-click="useWater()" ng-class="{'selected-tool': isWaterActive}">
+  	  		</div>
+  	  		<div class="toolstxt">
+  	  			15 Points
+  	  		</div>
+  	  	</div>
+  	  	<div class="tools shovel">
+  	  		<div class="img-container">
+  	  			<img ng-src="static/img/plant/Shovel_icon.png" ng-click="useShovel()" ng-class="{'selected-tool': isShovelActive}">
+  	  		</div>
+  	  		<div class="toolstxt">
+  	  			10 Points
+  	  		</div>
+  	  	</div>
+   	  </div>
+  	  <div class="seedbox">
+  	  	<div class="seeds-list">
+  	  		<div class="seeds" ng-repeat="seed in seeds" ng-click="selectSeed(seed)" ng-class="{'seed-selected': selectedSeed==seed.treeCode}">
+  	  			<div class="img-container seeds-img" 
+                 ng-class="{'oak-seed': seed.treeCode==0, 'evergreen-seed': seed.treeCode==1, 'maple-seed': seed.treeCode==2}">
+  	  			</div>
+  	  			<div class="seeds-amount">
+  	  				x {{seed.amount}}
+  	  			</div>
+  	  			<div class="seeds-name">
+  	  				{{seed.name}}
+  	  			</div>
+  	  		</div>
+  	  	</div>
+  	  	<div class="buymore">
+  	  		<button class="buymore-btn" ng-click="browseSeeds()">Buy More</button>
+  	  	</div>
+  		</div>
+  	</div>
+  	<div class="garden">
+  		<div class="garden-grid">
+  			<div class="garden-row" ng-repeat="row in grid track by $index">
+  				<div class="garden-cell" ng-repeat="cell in row track by $index" ng-switch="cell.state"  ng-click="plantTree(cell)">
+  					<div ng-switch-when=0 class="img-container">
+  					</div>
+  					<div ng-switch-when=1 class="img-container">
+  	  				<img ng-src="static/img/plant/Dughole.png">
+  					</div> 
+  					<div ng-switch-when=2 class="img-container">
+  	  				<img ng-src="static/img/plant/Sprout.png">
+  					</div>
+  					<div ng-switch-when=3 class="img-container">
+  	  				<img ng-src="static/img/plant/Oak.png">
+  					</div> 
+  					<div ng-switch-when=4 class="img-container">
+  	  				<img ng-src="static/img/plant/Evergreen.png">
+  					</div>
+  					<div ng-switch-when=5 class="img-container">
+  	  				<img ng-src="static/img/plant/Maple.png">
+  					</div>  					  					 					 					
+  				</div>
+  			</div>
+  		</div>	
+  	</div>
+  </div>
+  <div class="buy-seeds-page" 
+  		 ng-class="{'hidden-page': currentSeedPage<0, 
+  		 						'oak-page': currentSeedPage==0, 
+  		 						'evergreen-page': currentSeedPage==1, 
+  		 						'maple-page': currentSeedPage==2}">
+  	<div class="arrows-container">
+  		<button class="left-arrow" ng-click="leftNav()"><img src="static/img/plant/Left_Arrow.png"></button>
+  		<button class="right-arrow" ng-click="rightNav()"><img src="static/img/plant/Right_Arrow.png"></button>
+  	</div>
+  	<div class="buy-seeds">
+  	  <button class="buymore-btn" ng-click="buySeeds()">Buy Seeds</button>
+  	</div>
+  </div>
 </div>
