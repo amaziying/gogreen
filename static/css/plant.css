@@ -24,48 +24,72 @@
 		background-image: url(../img/plant/picnic.png);
 		background-size: 280px 250px;		
 		height: 250px;
-		padding: 10%;
+		padding: 8% 12%;
 	}
 	.garden {
-		padding: 5px;
 		margin-left: 30px;
 		display: inline-block;
 		width: 595px;
 		height: 485px;
-		background-image: url(../img/plant/Grass_frame.png);
-		background-size: 605px 495px;
 		vertical-align: top; /* fix bug where inline divs misalign vertically */
+
 	}
 	.tools {
 		width: 46%;
 		display: inline-block;
 		margin: 0 auto;
+		padding: 10px;
 	}
-	.toolsimg {
+	.img-container {
 		margin: 0 auto;
 	}
-	.toolsimg img{
+	.img-container img {
 		display: block;
 		margin: 0 auto;
 	}
+	.selected-tool {
+		transform: scale(1.25, 1.25);
+		box-shadow: 0 0 30px 10px yellow;
+	}
 	.toolstxt {
-		margin-top: 15px;
+		margin-top: 25px;
 		text-align: center;
 	}
 	.seeds-list {
+		height: 60%;
 		margin: 20px 0;
 	}
 	.seeds {
-		margin: 0 auto;
+		height: 33%;
+		margin: 8px auto;
 		padding: 5px;
 	}
 	.seeds div {
 		vertical-align: middle;
 		line-height: 90%;
 	}
+	.seed-selected {
+		box-shadow: 0 0 30px yellow;	
+	}
 	.seeds-img {
+		height: 100%;
 		display: inline-block;
 		width: 29%;
+	}
+	.oak-seed {
+		background: url(../img/plant/Oak_seed.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.evergreen-seed {
+		background: url(../img/plant/Evergreen_seed.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.maple-seed {
+		background: url(../img/plant/Maple_seed.png);
+		background-size: contain;
+		background-repeat: no-repeat;
 	}
 	.seeds-amount {
 		display: inline-block;
@@ -93,4 +117,64 @@
 		border: none;
 		background: #bce283;
 	}
-	
+	.garden-grid {
+		padding: 22px 0 9px 13px;
+		z-index: 100;
+		height: 100%;
+		background-image: url(../img/plant/Grass_frame.png);
+		background-size: 600px 495px;
+	}
+	.garden-row {
+		height: 20%;
+	}
+	.garden-cell {
+		display: inline-block;
+		box-sizing: border-box;
+		border: solid 5px #876245;
+		width: 14%;
+		height: 100%;
+		background-color: #a07553;
+		position: relative;
+	} 
+	.garden-cell img {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+	}
+	.hidden-page {
+		display: none;
+	}
+	.buy-seeds-page {
+		height: 595px;
+		background-size: 90% 100%;
+		background-repeat: no-repeat;
+		background-position: center;
+		padding-top: 24%;
+	}
+	.oak-page {
+		background-image: url(../img/plant/Oak_Tree.png);
+	}
+	.evergreen-page {
+		background-image: url(../img/plant/Evergreen_Tree.png);
+	}	
+	.maple-page {
+		background-image: url(../img/plant/Maple_Tree.png);
+	}
+	.arrows-container {
+		width: 74%;
+		margin: 0 auto;
+	}
+	.left-arrow {
+		float: left;
+	}
+	.right-arrow {
+		float: right;
+	}
+	.buy-seeds {
+		width: 180px;
+		height: 60px;
+		margin: 0 auto;
+		margin-top: 20.8%;
+	}
