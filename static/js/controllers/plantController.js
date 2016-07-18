@@ -1,4 +1,4 @@
-function plantController($scope, $http){
+function plantController($scope, $http, scoringService){
 	$scope.data = "data";
 
 	$scope.currentSeedPage = -1;
@@ -81,7 +81,7 @@ function plantController($scope, $http){
 		if(cell.state == 0){
 			if($scope.isShovelActive){
 				if($scope.score >= shovelCost){
-					$scope.score -= shovelCost;
+					scoringService.consumeScore(shovelCost);
 					cell.state = 1;					
 				} else {
 					alert(noMorePointsReminder);
@@ -117,7 +117,7 @@ function plantController($scope, $http){
 					if(cell.type == 2){
 						cell.state = 5;
 					}
-					$scope.score -= waterCost;					
+					scoringService.consumeScore(waterCost);					
 				} else {
 					alert(noMorePointsReminder);
 				}
@@ -135,7 +135,7 @@ function plantController($scope, $http){
 	$scope.buySeeds = function(){
 		if($scope.currentSeedPage >= 0){
 			if($scope.score >= seedCost) {
-				$scope.score -= seedCost;
+				scoringService.consumeScore(seedCost);
 				$scope.currentSeedPage = -1;				
 				$scope.seeds[$scope.currentSeedPage].amount++;
 			} else {
