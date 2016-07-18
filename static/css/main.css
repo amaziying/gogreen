@@ -258,3 +258,27 @@ div#user-level {
 .red-background {
     background-color: #FB474D;
 }
+
+.tutorial{
+  z-index: 1000;
+  position: absolute;
+  width: 100%;
+  top:0px;
+  left:0px;
+}
+
+#one{
+  background-image: url(../img/Tutorial_1.png);
+}
+
+#two{
+  background-image: url(../img/Tutorial_2.png);
+}
+
+#three{
+  background-image: url(../img/Tutorial_3.png);
+}
+
+#four{
+  background-image: url(../img/Tutorial_4.png);
+}
