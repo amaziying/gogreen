@@ -4,7 +4,7 @@
   	  <div class="sandbox">
   	  	<div class="tools watercan">
   	  		<div class="img-container">
-  	  			<img ng-src="static/img/plant/Watercan_icon.png" ng-click="useWater()" ng-class="{'selected-tool': isWaterActive}">
+  	  			<img ng-src="static/img/plant/Watercan_icon.png" ng-click="useWater()" ng-class="{'selected-tool': toolActive==0}">
   	  		</div>
   	  		<div class="toolstxt">
   	  			15 Points
@@ -12,7 +12,7 @@
   	  	</div>
   	  	<div class="tools shovel">
   	  		<div class="img-container">
-  	  			<img ng-src="static/img/plant/Shovel_icon.png" ng-click="useShovel()" ng-class="{'selected-tool': isShovelActive}">
+  	  			<img ng-src="static/img/plant/Shovel_icon.png" ng-click="useShovel()" ng-class="{'selected-tool': toolActive==1}">
   	  		</div>
   	  		<div class="toolstxt">
   	  			10 Points
@@ -21,9 +21,9 @@
    	  </div>
   	  <div class="seedbox">
   	  	<div class="seeds-list">
-  	  		<div class="seeds" ng-repeat="seed in seeds" ng-click="selectSeed(seed)" ng-class="{'seed-selected': selectedSeed==seed.treeCode}">
+  	  		<div class="seeds" ng-repeat="seed in seeds" ng-click="selectSeed(seed)" ng-class="{'seed-selected': toolActive==seed.treeCode}">
   	  			<div class="img-container seeds-img" 
-                 ng-class="{'oak-seed': seed.treeCode==0, 'evergreen-seed': seed.treeCode==1, 'maple-seed': seed.treeCode==2}">
+                 ng-class="{'oak-seed': seed.treeCode==oak_code, 'evergreen-seed': seed.treeCode==evergreen_code, 'maple-seed': seed.treeCode==maple_code}">
   	  			</div>
   	  			<div class="seeds-amount">
   	  				x {{seed.amount}}
