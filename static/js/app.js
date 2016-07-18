@@ -9,6 +9,7 @@ import mainController from './controllers/mainController';
 import plantController from './controllers/plantController';
 import communityController from './controllers/communityController';
 import scoringService from './services/scoringService';
+import plantService from './services/plantService';
 import 'babel-polyfill';
 import 'jquery';
 //configuration could be updated and seperated into different files if needed
@@ -18,10 +19,11 @@ var app = angular.module(moduleName, [
  'ngRoute', 'ui.bootstrap', 'smart-table'
 ]).config(config)
   .factory('scoringService', ['$timeout', scoringService])
+  .factory('plantService', ['scoringService', plantService])
   .controller('historyController', historyController)
   .controller('mainController', ['$scope', '$http','$location', 'scoringService', mainController])
   .controller('homeController', ['$scope', '$http', '$timeout', 'scoringService', homeController])
-  .controller('plantController', plantController)
+  .controller('plantController', ['$scope', '$http', 'scoringService', 'plantService', plantController])
   .controller('communityController', ['$scope', '$http', 'orderByFilter', 'scoringService', communityController]);
 
 export default moduleName;
