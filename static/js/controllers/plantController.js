@@ -92,9 +92,9 @@ function plantController($scope, $http){
 			}
 		}
 		else if(cell.state == 1){
-			if($scope.selectedSeed){
-				if($scope.seeds[selectedSeed].amount > 0){
-					$scope.seeds[selectedSeed].amount--;
+			if($scope.selectedSeed >= 0){
+				if($scope.seeds[$scope.selectedSeed].amount > 0){
+					$scope.seeds[$scope.selectedSeed].amount--;
 					cell.state = 2;
 					cell.type = $scope.selectedSeed;					
 				} else {
