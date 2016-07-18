@@ -1,14 +1,18 @@
-function plantController($scope, $http){
+function plantController($scope, $http, scoringService){
 	$scope.data = "data";
 
 	$scope.currentSeedPage = -1;
-	$scope.isWaterActive = false;
-	$scope.isShovelActive = false;	
+	$scope.toolActive = -1; // 0=water, 1=shovel, 2=oakseed, 3=evergreenseed, 4=mapleseed	
 	$scope.selectedSeed = -1;
+
+	$scope.oak_code = 2;
+	$scope.evergreen_code = 3;
+	$scope.maple_code = 4;
 
 	var shovelCost = 10;
 	var waterCost = 15;
 	var seedCost = 300;
+
 	var shovelReminder = "You need to use your shovel to dig a hole first!";
 	var seedReminder = "You need to select a seed to be planted!";
 	var waterReminder = "You need to water your sprout for it to grow into a tree!";
@@ -16,48 +20,32 @@ function plantController($scope, $http){
 	var noMorePointsReminder = "You do not have enough points.";
 
 	$scope.useWater = function(){
-		$scope.isShovelActive = false;
-		$scope.selectedSeed = -1;
-		if($scope.isWaterActive){
-			$scope.isWaterActive = false;
-		} else {
-			$scope.isWaterActive = true;
-		}
+		$scope.toolActive = 0;
 	};
 
 	$scope.useShovel = function(){
-		$scope.isWaterActive = false;
-		$scope.selectedSeed = -1;
-		if($scope.isShovelActive){
-			$scope.isShovelActive = false;
-		} else {
-			$scope.isShovelActive = true;
-		}
+		$scope.toolActive = 1;
 	};
 
 	$scope.selectSeed = function(seed){
-		$scope.isWaterActive = false;
-		$scope.isShovelActive = false;
-		if(seed.treeCode >= 0){
-			$scope.selectedSeed = seed.treeCode;
-		}
+		$scope.toolActive = seed.treeCode;
 	};
 
 	$scope.seeds = [
 		{
-			"treeCode" : 0,
+			"treeCode" : $scope.oak_code,
 			"imgName:": "Oak_seed",
 		 	"amount": 1,
 		 	"name": "Oak Tree"
 		},
 		{
-			"treeCode" : 1,
+			"treeCode" : $scope.evergreen_code,
 			"imgName:": "Evergreen_seed",
 		 	"amount": 1,
 		 	"name": "Evergreen Tree"
 		},
 		{
-			"treeCode" : 2,
+			"treeCode" : $scope.maple_code,
 			"imgName:": "Maple_seed",
 		 	"amount": 1,
 		 	"name": "Maple Tree"
@@ -79,50 +67,50 @@ function plantController($scope, $http){
 
 	$scope.plantTree = function(cell){
 		if(cell.state == 0){
-			if($scope.isShovelActive){
-				if($scope.score >= shovelCost){
-					$scope.score -= shovelCost;
+			if($scope.toolActive == 1){
+				if(scoringService.getScore() >= shovelCost){
+					scoringService.consumeScore(shovelCost);
 					cell.state = 1;					
 				} else {
 					alert(noMorePointsReminder);
 				}
 			}
-			else if($scope.isWaterActive || $scope.selectedSeed >= 0){
+			else if($scope.toolActive > -1){
 				alert(shovelReminder);
 			}
 		}
 		else if(cell.state == 1){
-			if($scope.selectedSeed >= 0){
-				if($scope.seeds[$scope.selectedSeed].amount > 0){
-					$scope.seeds[$scope.selectedSeed].amount--;
+			if($scope.toolActive >= $scope.oak_code){
+				if($scope.seeds[$scope.toolActive-2].amount > 0){
+					$scope.seeds[$scope.toolActive-2].amount--;
 					cell.state = 2;
-					cell.type = $scope.selectedSeed;					
+					cell.type = $scope.toolActive;					
 				} else {
 					alert(noMoreSeedReminder);
 				}
 			}
-			else if($scope.isWaterActive || $scope.isShovelActive){
+			else if($scope.toolActive > -1){
 				alert(seedReminder);
 			}
 		}
 		else if(cell.state == 2){
-			if($scope.isWaterActive){
-				if($scope.score >= waterCost){
-					if(cell.type == 0){
+			if($scope.toolActive == 0){
+				if(scoringService.getScore() >= waterCost){
+					if(cell.type == $scope.oak_code){
 						cell.state = 3;
 					}
-					if(cell.type == 1){
+					if(cell.type == $scope.evergreen_code){
 						cell.state = 4;
 					}
-					if(cell.type == 2){
+					if(cell.type == $scope.maple_code){
 						cell.state = 5;
 					}
-					$scope.score -= waterCost;					
+					scoringService.consumeScore(waterCost);					
 				} else {
 					alert(noMorePointsReminder);
 				}
 			}
-			else if($scope.isShovelActive || $scope.selectedSeed >= 0){
+			else if($scope.toolActive > -1){
 				alert(waterReminder);
 			}
 		}		
@@ -134,10 +122,10 @@ function plantController($scope, $http){
 
 	$scope.buySeeds = function(){
 		if($scope.currentSeedPage >= 0){
-			if($scope.score >= seedCost) {
-				$scope.score -= seedCost;
-				$scope.currentSeedPage = -1;				
+			if(scoringService.getScore() >= seedCost) {
+				scoringService.consumeScore(seedCost);			
 				$scope.seeds[$scope.currentSeedPage].amount++;
+				$scope.currentSeedPage = -1;	
 			} else {
 				alert(noMorePointsReminder);
 			}
