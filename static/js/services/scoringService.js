@@ -24,19 +24,22 @@ function scoringService ($timeout) {
         levelName: 'Green Master'
     }];
 
-    function incrementScore() {
-        currentScore += 50;
-
+    function pushToSubscribers() {
         subscriptions.forEach(function(callback) {
             callback(currentScore);
         });
+    }
+
+    function incrementScore() {
+        currentScore += 50;
+        pushToSubscribers();
 
         if (currentScore < 4000) {
             $timeout(incrementScore, 3000);
         }
     }
-    incrementScore();
 
+    incrementScore();
 
     return {
         subscribe: function (callback) {
@@ -48,6 +51,7 @@ function scoringService ($timeout) {
         },
         consumeScore: function (cost) {
             currentScore = currentScore - cost;
+            pushToSubscribers();
             return currentScore;
         },
         getUserLevel: function () {

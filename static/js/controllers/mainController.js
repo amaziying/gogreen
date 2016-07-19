@@ -43,6 +43,7 @@ function mainController($scope, $http, $location, scoringService){
     $scope.goalMetrics = scoringService.getGoalMetrics();
     updateProgressBar($scope.goalMetrics.progressPercentage);
   }
+  updateScore(0);
 
   scoringService.subscribe(updateScore);
 

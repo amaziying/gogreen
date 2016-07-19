@@ -1,7 +1,7 @@
 <div class="playground-container">
 	<div class="garbage-container">
 		<img class="garbage-can" ng-src="static/img/Playground_garbage_{{statusLevel}}.png">
-		<div ng-if="showScoreUpdate" ng-class="levels[statusLevel].className" class="w3-animate-zoom w3-animate-opacity score-pop-up">+{{pointIncrementLevel}}</div>
+		<div ng-show="showScoreUpdate" ng-class="levels[statusLevel].className" class="animate-show score-pop-up">+{{pointIncrementLevel}}</div>
 	</div>
 	<div class="status-container">
 		<div class="status-info container">
