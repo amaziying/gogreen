@@ -96,11 +96,11 @@ div#user-level {
 .nav-ul{
     padding: 0;
     width: 100%;
-    display: inline-block;
+    display: block;
 }
 
 .nav-ul li{
-    width: 33.07%;
+    width: 33%;
     display: inline-block;
     line-height: 98px;
     /*vertical-align: middle;*/
@@ -233,6 +233,15 @@ div#user-level {
     width: 20px;
     height: 20px;
     border-radius: 10px;
+}
+
+.animation-show {
+    opacity: 0;
+    transition: all linear 0.5s;
+}
+
+.animation-show.ng-show {
+    opacity: 1;
 }
 
 .green {
