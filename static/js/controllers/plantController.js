@@ -113,6 +113,7 @@ function plantController($scope, $http, $location, scoringService, plantService)
 					if(cell.type == $scope.maple_code){
 						cell.state = 5;
 					}
+					plantService.incrementTreesPlanted();
 					scoringService.consumeScore(waterCost);
 				} else {
 					alert(noMorePointsReminder);
