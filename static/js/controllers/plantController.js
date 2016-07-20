@@ -1,8 +1,8 @@
-function plantController($scope, $http, scoringService){
+function plantController($scope, $http, $location, scoringService){
 	$scope.data = "data";
 
 	$scope.currentSeedPage = -1;
-	$scope.toolActive = -1; // 0=water, 1=shovel, 2=oakseed, 3=evergreenseed, 4=mapleseed	
+	$scope.toolActive = -1; // 0=water, 1=shovel, 2=oakseed, 3=evergreenseed, 4=mapleseed
 	$scope.selectedSeed = -1;
 
 	$scope.oak_code = 2;
@@ -18,6 +18,24 @@ function plantController($scope, $http, scoringService){
 	var waterReminder = "You need to water your sprout for it to grow into a tree!";
 	var noMoreSeedReminder = "You need to select a seed to be planted!";
 	var noMorePointsReminder = "You do not have enough points.";
+
+	$scope.showHelp = false;
+
+	$scope.help = function(){
+		$scope.showHelp = true;
+		console.log("agwae");
+	};
+
+	$scope.closePage = function(){
+		$scope.showHelp = false;
+	};
+
+	$scope.seeTutorial = function(){
+		// $timeout(function () {
+			$location.path('/tutorial2');
+		// });
+		$scope.showHelp = false;
+	};
 
 	$scope.useWater = function(){
 		$scope.toolActive = 0;
@@ -70,7 +88,7 @@ function plantController($scope, $http, scoringService){
 			if($scope.toolActive == 1){
 				if(scoringService.getScore() >= shovelCost){
 					scoringService.consumeScore(shovelCost);
-					cell.state = 1;					
+					cell.state = 1;
 				} else {
 					alert(noMorePointsReminder);
 				}
@@ -84,7 +102,7 @@ function plantController($scope, $http, scoringService){
 				if($scope.seeds[$scope.toolActive-2].amount > 0){
 					$scope.seeds[$scope.toolActive-2].amount--;
 					cell.state = 2;
-					cell.type = $scope.toolActive;					
+					cell.type = $scope.toolActive;
 				} else {
 					alert(noMoreSeedReminder);
 				}
@@ -105,7 +123,7 @@ function plantController($scope, $http, scoringService){
 					if(cell.type == $scope.maple_code){
 						cell.state = 5;
 					}
-					scoringService.consumeScore(waterCost);					
+					scoringService.consumeScore(waterCost);
 				} else {
 					alert(noMorePointsReminder);
 				}
@@ -113,7 +131,7 @@ function plantController($scope, $http, scoringService){
 			else if($scope.toolActive > -1){
 				alert(waterReminder);
 			}
-		}		
+		}
 	};
 
 	$scope.browseSeeds = function(){
@@ -123,9 +141,9 @@ function plantController($scope, $http, scoringService){
 	$scope.buySeeds = function(){
 		if($scope.currentSeedPage >= 0){
 			if(scoringService.getScore() >= seedCost) {
-				scoringService.consumeScore(seedCost);			
+				scoringService.consumeScore(seedCost);
 				$scope.seeds[$scope.currentSeedPage].amount++;
-				$scope.currentSeedPage = -1;	
+				$scope.currentSeedPage = -1;
 			} else {
 				alert(noMorePointsReminder);
 			}
@@ -136,7 +154,7 @@ function plantController($scope, $http, scoringService){
 		if($scope.currentSeedPage == 0){
 			$scope.currentSeedPage = $scope.seeds.length - 1;
 		} else {
-			$scope.currentSeedPage--;			
+			$scope.currentSeedPage--;
 		}
 	};
 
@@ -144,7 +162,7 @@ function plantController($scope, $http, scoringService){
 		if($scope.currentSeedPage == $scope.seeds.length - 1){
 			$scope.currentSeedPage = 0;
 		} else {
-			$scope.currentSeedPage++;			
+			$scope.currentSeedPage++;
 		}
 	}
 

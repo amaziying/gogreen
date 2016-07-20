@@ -1,6 +1,24 @@
-function homeController($scope, $http, $timeout, scoringService){
+function homeController($scope, $http, $location, $timeout, scoringService){
 	//initialize homecontroller
 	$scope.showScoreUpdate = false;
+	$scope.showHelp = false;
+
+	$scope.help = function(){
+		$scope.showHelp = true;
+		console.log("agwae");
+	};
+
+	$scope.closePage = function(){
+		$scope.showHelp = false;
+	};
+
+	$scope.seeTutorial = function(){
+		// $timeout(function () {
+			$location.path('/tutorial2');
+		// });
+		$scope.showHelp = false;
+	};
+
 	$scope.levels = {
 		low: {
 			className: 'green',

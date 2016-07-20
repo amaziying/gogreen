@@ -259,26 +259,37 @@ div#user-level {
     background-color: #FB474D;
 }
 
-.tutorial{
-  z-index: 1000;
+.help{
   position: absolute;
-  width: 100%;
-  top:0px;
-  left:0px;
+  bottom: 15%;
+  right: 1%;
 }
 
-#one{
-  background-image: url(../img/Tutorial_1.png);
+.hidden{
+  display: none;
 }
 
-#two{
-  background-image: url(../img/Tutorial_2.png);
+.help-page{
+  position: absolute;
+  top:86.5px;
+  left:12.5px;
+  width: 999px;
+  height: 575px;
 }
 
-#three{
-  background-image: url(../img/Tutorial_3.png);
+.help-page img{
+  width: 999px;
+  height: 575px;
 }
 
-#four{
-  background-image: url(../img/Tutorial_4.png);
+.closePage{
+  position: absolute;
+  top: 13.5%;
+  right:2.5%;
+}
+
+.seeTutorial{
+  position: absolute;
+  bottom: 16%;
+  left: 3%;
 }
