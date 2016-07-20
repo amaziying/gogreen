@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function homeController($scope, $http, $location, $timeout, scoringService){
 	//initialize homecontroller
 	$scope.showScoreUpdate = false;

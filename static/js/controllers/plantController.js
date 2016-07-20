@@ -1,4 +1,4 @@
-function plantController($scope, $http, $location, scoringService){
+function plantController($scope, $http, $location, scoringService, plantService){
 	$scope.data = "data";
 
 	$scope.currentSeedPage = -1;
@@ -135,7 +135,7 @@ function plantController($scope, $http, $location, scoringService){
 				scoringService.consumeScore(seedCost);
 				plantService.incrementSeedsAmount($scope.currentSeedPage+$scope.oak_code);
 				$scope.seeds[$scope.currentSeedPage].amount = plantService.getSeedsAmount()[$scope.currentSeedPage+2];
-				$scope.currentSeedPage = -1;	
+				$scope.currentSeedPage = -1;
 			} else {
 				alert(noMorePointsReminder);
 			}
