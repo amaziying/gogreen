@@ -21,6 +21,11 @@ function tutorialController($scope, $http, $location, scoringService){
     $scope.hasSeen = true;
     $location.path("/#/home");
   };
+
+  $scope.finishedTutorial = function(){
+    scoringService.setInitialScore(2000);
+    $scope.close();
+  }
 }
 
 export default tutorialController;

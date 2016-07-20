@@ -26,6 +26,11 @@ function scoringService ($timeout, weightService) {
         nextLevelScore: 4000,
         level: 4,
         levelName: 'Green Master'
+    }, {
+        minScore: 4000,
+        nextLevelScore: 10000,
+        level: 5,
+        levelName: 'Green Grand Master'
     }];
 
 
@@ -49,9 +54,7 @@ function scoringService ($timeout, weightService) {
             pushToSubscribers();
         }
 
-        if (currentScore < 4000) {
-            $timeout(countdownTimer, 1000);
-        }
+        $timeout(countdownTimer, 1000);
     }
 
     countdownTimer();
@@ -85,6 +88,11 @@ function scoringService ($timeout, weightService) {
                 pointsUntilUpgrade: userLevel.nextLevelScore - currentScore,
                 progressPercentage: (currentScore - userLevel.minScore)/(userLevel.nextLevelScore - userLevel.minScore)
             };
+        },
+        setInitialScore: function (score) {
+            currentScore = score;
+            countdown = totalTime;
+            pushToSubscribers();
         }
     }
 }
