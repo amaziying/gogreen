@@ -7,7 +7,7 @@
 		<div class="status-info container">
 			<div style="padding-top:40px;" class="row">
 				<div style="padding-top:8px;" class="col-md-offset-1 col-md-6 status-info-title">SCORE</div>
-				<div class="col-md-4 status-info-number">{{score}}</div>
+				<div class="col-md-4 status-info-number counter" value="shownScore" to="score">{{shownScore | number:0}}</div>
 			</div>
 			<p class="status-info-timer">(<span style="font-weight:600;">{{countdown}}</span> until <span ng-class="levels[statusLevel].className">+{{pointIncrementLevel}}</span> points)</p>
 			<div style="padding-top:40px;" class="row">

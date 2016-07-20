@@ -2,6 +2,7 @@ import angular from 'angular';
 import angularRoute from 'angular-route';
 import uiBootstrap from 'angular-ui-bootstrap';
 import smartTable from 'angular-smart-table';
+import ngAnimate from 'angular-animate';
 import config from './config';
 import homeController from './controllers/homeController';
 import historyController from './controllers/historyController';
@@ -16,7 +17,7 @@ import 'jquery';
 
 var moduleName = "app";
 var app = angular.module(moduleName, [
- 'ngRoute', 'ui.bootstrap', 'smart-table'
+ 'ngRoute', 'ui.bootstrap', 'smart-table', 'ngAnimate', 'counter'
 ]).config(config)
   .factory('scoringService', ['$timeout', scoringService])
   .factory('plantService', ['scoringService', plantService])

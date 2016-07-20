@@ -3,6 +3,7 @@ body {
 }
 
 header.score-bar-container {
+    width: 100%;
     margin: 0;
     padding: 0;
     background-color: #6cb0a4;
@@ -235,14 +236,14 @@ div#user-level {
     border-radius: 10px;
 }
 
-.animation-show {
-    opacity: 0;
-    transition: all linear 0.5s;
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: all linear 0.5s;
 }
 
-.animation-show.ng-show {
-    opacity: 1;
+.animate-show.ng-hide {
+  opacity: 0;
 }
+
 
 .green {
     color: #92c350;
