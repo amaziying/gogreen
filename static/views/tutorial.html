@@ -1,6 +1,6 @@
 <div class="tutorial">
   <img class='tutorial-img' src='{{imgLink[state]}}'>
-  <button ng-if="state < 3" ng-click="next()"><img class='navigate' src="static/img/Right_Arrow.png"></button>
-  <button ng-click="close()"><img class='close' src="static/img/Close_icon.png"></button>
-  <button ng-if="state === 3" ng-click="finishedTutorial()"><img class='start' src="static/img/LetsStart_Button.png"></button>
+  <div ng-if="state < 3" ng-click="next()"><img class='navigate' src="static/img/Right_Arrow.png"></div>
+  <div ng-click="close()"><img class='close' src="static/img/Close_icon.png"></div>
+  <div ng-if="state === 3" ng-click="finishedTutorial()"><img class='start' src="static/img/LetsStart_Button.png"></div>
 </div>

@@ -3,11 +3,11 @@ function communityController($scope, $http, orderBy, scoringService, plantServic
 	$scope.displayedCollection = [];
 	$scope.trees = null;
 	$scope.userCollection = [
-		{name: "Sanhar Balachandran", score: 500, level: 3, path: "static/img/sanhar.png"},
-		{name: "Sadu Hashmani", score: 400, level: 4, path: "static/img/sadu.png"},
-		{name: "Bainian Liu", score: 300, level: 5, path: "static/img/bainian.jpg.png"},
-		{name: "Ziying Zhang", score: 61, level: 6, path: "static/img/ziying.png"},
-		{name: "Nabeel Shahid", score: 60, level: 6, path: "static/img/nabeel.png"},
+		{name: "Sanhar Balachandran", score: 5000, level: 5, path: "static/img/sanhar.png"},
+		{name: "Sadu Hashmani", score: 4000, level: 4, path: "static/img/sadu.png"},
+		{name: "Bainian Liu", score: 3000, level: 3, path: "static/img/bainian.jpg.png"},
+		{name: "Ziying Zhang", score: 2061, level: 2, path: "static/img/ziying.png"},
+		{name: "Nabeel Shahid", score: 2060, level: 2, path: "static/img/nabeel.png"},
 		{name: "Felix Wei", score: 6300, level: 6, path: "static/img/felixw.png"},
 		$scope.data
 	];
