@@ -1,6 +1,7 @@
-function communityController($scope, $http, orderBy, scoringService){
+function communityController($scope, $http, orderBy, scoringService, plantService){
 	$scope.data = {id: 1, name: "Susie Gee", score: null, level: 4, path: "static/img/susie.png"};
 	$scope.displayedCollection = [];
+	$scope.trees = null;
 	$scope.userCollection = [
 		{name: "Sanhar Balachandran", score: 500, level: 3, path: "static/img/sanhar.png"},
 		{name: "Sadu Hashmani", score: 400, level: 4, path: "static/img/sadu.png"},
@@ -23,6 +24,10 @@ function communityController($scope, $http, orderBy, scoringService){
 		return a-b;
 	});
 	$scope.rank = $scope.userCollection.indexOf($scope.data); }, 1000);
+
+	setTimeout(function(){
+		$scope.trees = plantService.getTreesPlanted();
+	 }, 0);
 
 	function updateScore(newScore) {
 		$scope.score = newScore;

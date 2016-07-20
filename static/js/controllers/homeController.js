@@ -5,7 +5,6 @@ function homeController($scope, $http, $location, $timeout, scoringService){
 
 	$scope.help = function(){
 		$scope.showHelp = true;
-		console.log("agwae");
 	};
 
 	$scope.closePage = function(){
