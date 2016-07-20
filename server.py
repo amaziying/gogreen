@@ -1,10 +1,10 @@
 from flask import Flask, render_template
-# import pymssql
+import pymssql
 
 # Establish connection with Azure SQL database
-# conn = pymssql.connect(server="syde-361-server.database.windows.net", user="group-11@syde-361-server",
-#                        password="Apple@123", database="syde_361_metrics")
-# cursor = conn.cursor()
+conn = pymssql.connect(server="syde-361-server.database.windows.net", user="group-11@syde-361-server",
+                       password="Apple@123", database="syde_361_metrics")
+cursor = conn.cursor()
 
 class CustomFlask(Flask):
     jinja_options = Flask.jinja_options.copy()
