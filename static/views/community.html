@@ -21,13 +21,13 @@
 
         	<tbody>
         	<tr ng-class="{current: {{user.id === 1}}}" ng-repeat="user in (filteredItems = (displayedCollection | orderBy: '-score'))" >
-        		<td class="rank" ng-if="$index === 0"><img src='static/img/Community_rank1.png'></td>
-            <td class="rank" ng-if="$index === 1"><img src='static/img/Community_rank2.png'></td>
-            <td class="rank" ng-if="$index === 2"><img src='static/img/Community_rank3.png'></td>
-            <td class="rank" ng-if="$index > 2">{{$index +1}}</td>
-        		<td class='table-cell'><img src='static/img/Community_rank2.png'>{{user.name}}</td>
-            <td class='table-cell'>{{user.score}}</td>
-        		<td class='table-cell'>{{user.level}}</td>
+        		<td class="rank center" ng-if="$index === 0"><img src='static/img/Community_rank1.png'></td>
+            <td class="rank center" ng-if="$index === 1"><img src='static/img/Community_rank2.png'></td>
+            <td class="rank center" ng-if="$index === 2"><img src='static/img/Community_rank3.png'></td>
+            <td class="rank center" ng-if="$index > 2">{{$index +1}}</td>
+        		<td class='table-cell left-align'><img class='images'src='{{user.path}}'>&nbsp&nbsp&nbsp{{user.name}}</td>
+            <td class='table-cell center'>{{user.score}}</td>
+        		<td class='table-cell center'>{{user.level}}</td>
         	</tr>
         	</tbody>
 
@@ -36,7 +36,7 @@
     </div>
 
     <div class='right-div'>
-      <img class='profile' src='static/img/Community_rank2.png'/>
+      <img class='profile' src='static/img/susie.png'/>
       <p class='name'>Susie Gee</p>
       <p class='info-title'>My Score</p>
       <p class='number'>{{score}}</p>

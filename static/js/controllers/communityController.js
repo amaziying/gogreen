@@ -1,16 +1,13 @@
 function communityController($scope, $http, orderBy, scoringService){
-	$scope.data = {id: 1, name: "my name", score: null, level: 4};
+	$scope.data = {id: 1, name: "Susie Gee", score: null, level: 4, path: "static/img/susie.png"};
 	$scope.displayedCollection = [];
 	$scope.userCollection = [
-		{name: "userOne", score: 500, level: 3},
-		{name: "userTwo", score: 400, level: 4},
-		{name: "userThree", score: 300, level: 5},
-		{name: "userFowur", score: 61, level: 6},
-		{name: "userFoeur", score: 60, level: 6},
-		{name: "userFofur", score: 6300, level: 6},
-		{name: "userFoeur", score: 6550, level: 6},
-		{name: "userFhour", score: 6003, level: 6},
-		{name: "userFohur", score: 6002, level: 6},
+		{name: "Sanhar Balachandran", score: 500, level: 3, path: "static/img/sanhar.png"},
+		{name: "Sadu Hashmani", score: 400, level: 4, path: "static/img/sadu.png"},
+		{name: "Bainian Liu", score: 300, level: 5, path: "static/img/bainian.jpg.png"},
+		{name: "Ziying Zhang", score: 61, level: 6, path: "static/img/ziying.png"},
+		{name: "Nabeel Shahid", score: 60, level: 6, path: "static/img/nabeel.png"},
+		{name: "Felix Wei", score: 6300, level: 6, path: "static/img/felixw.png"},
 		$scope.data
 	];
 

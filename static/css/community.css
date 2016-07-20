@@ -99,9 +99,12 @@
 }
 
 .scoreboard td{
-  text-align: center;
   height:75px;
   padding:0;
+}
+
+.center{
+  text-align: center;
 }
 
 .rank{
@@ -135,4 +138,10 @@
 
 .hidden{
   display: none;
+}
+
+.left-align{
+  text-align: left;
+  position: relative;
+  left: 9%;
 }
