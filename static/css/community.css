@@ -1,4 +1,6 @@
 .community-div{
+  background-image: url("../img/Community_background.png");
+  background-position: center center;
   position: relative;
   background-color: #fff;
   height: 595px;
@@ -22,7 +24,7 @@
 
 .table-wrapper{
   overflow-y: scroll;
-  height: 364px;
+  height: 360px;
 }
 
 .right-div{
@@ -99,9 +101,12 @@
 }
 
 .scoreboard td{
-  text-align: center;
   height:75px;
   padding:0;
+}
+
+.center{
+  text-align: center;
 }
 
 .rank{
@@ -135,4 +140,22 @@
 
 .hidden{
   display: none;
+}
+
+.left-align{
+  text-align: left;
+  position: relative;
+  left: 12%;
+}
+
+.left-align img{
+  height: 60px;
+}
+
+.background{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top:0;
+  left: 0;
 }

@@ -43,7 +43,6 @@ function scoringService ($timeout, weightService) {
 
     function countdownTimer() {
         countdown--;
-        console.log(countdown);
         if (countdown === 0) {
             countdown = totalTime;
             currentScore += currentWeightLevel.pointIncrement;

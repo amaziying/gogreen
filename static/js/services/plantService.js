@@ -6,6 +6,7 @@ function plantService(scoringService) {
 		"3": 1, //evergreen
 		"4": 1  //maple
 	};
+	var treesPlanted = 0;
 	var isGridInitialized = false;
 
 	var shovelCost = 10;
@@ -48,6 +49,12 @@ function plantService(scoringService) {
 		},
 		decrementSeedsAmount: function(treeCode){
 			seedsAmount[treeCode] -= 1;
+		},
+		incrementTreesPlanted: function(){
+			treesPlanted++;
+		},
+		getTreesPlanted: function(){
+			return treesPlanted;
 		}
 	}
 }

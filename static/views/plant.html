@@ -1,4 +1,4 @@
-<div>
+<div ng-class="{hidden: showHelp}"">
   <div class="plant" ng-class="{'hidden-page': currentSeedPage>=0, }">
   	<div class="toolkits">
   	  <div class="sandbox">
@@ -22,7 +22,7 @@
   	  <div class="seedbox">
   	  	<div class="seeds-list">
   	  		<div class="seeds" ng-repeat="seed in seeds" ng-click="selectSeed(seed)" ng-class="{'seed-selected': toolActive==seed.treeCode}">
-  	  			<div class="img-container seeds-img" 
+  	  			<div class="img-container seeds-img"
                  ng-class="{'oak-seed': seed.treeCode==oak_code, 'evergreen-seed': seed.treeCode==evergreen_code, 'maple-seed': seed.treeCode==maple_code}">
   	  			</div>
   	  			<div class="seeds-amount">
@@ -46,35 +46,40 @@
   					</div>
   					<div ng-switch-when=1 class="img-container">
   	  				<img ng-src="static/img/plant/Dughole.png">
-  					</div> 
+  					</div>
   					<div ng-switch-when=2 class="img-container">
   	  				<img ng-src="static/img/plant/Sprout.png">
   					</div>
   					<div ng-switch-when=3 class="img-container">
   	  				<img ng-src="static/img/plant/Oak.png">
-  					</div> 
+  					</div>
   					<div ng-switch-when=4 class="img-container">
   	  				<img ng-src="static/img/plant/Evergreen.png">
   					</div>
   					<div ng-switch-when=5 class="img-container">
   	  				<img ng-src="static/img/plant/Maple.png">
-  					</div>  					  					 					 					
+  					</div>
   				</div>
   			</div>
-  		</div>	
+  		</div>
   	</div>
   </div>
-  <div class="buy-seeds-page" 
-  		 ng-class="{'hidden-page': currentSeedPage<0, 
-  		 						'oak-page': currentSeedPage==0, 
-  		 						'evergreen-page': currentSeedPage==1, 
+  <div class="buy-seeds-page"
+  		 ng-class="{'hidden-page': currentSeedPage<0,
+  		 						'oak-page': currentSeedPage==0,
+  		 						'evergreen-page': currentSeedPage==1,
   		 						'maple-page': currentSeedPage==2}">
   	<div class="arrows-container">
-  		<button class="left-arrow" ng-click="leftNav()"><img src="static/img/plant/Left_Arrow.png"></button>
-  		<button class="right-arrow" ng-click="rightNav()"><img src="static/img/plant/Right_Arrow.png"></button>
+  		<div class="left-arrow arrow" ng-click="leftNav()"></div>
+  		<div class="right-arrow arrow" ng-click="rightNav()"></div>
   	</div>
   	<div class="buy-seeds">
   	  <button class="buymore-btn" ng-click="buySeeds()">Buy Seeds</button>
   	</div>
   </div>
 </div>
+
+<div ng-class="{hidden: !showHelp}" class="help-page"><img ng-class="{hidden: !showHelp}" src="static/img/Help_Garden.png"></div>
+<button ng-class="{hidden: showHelp}" ng-click="help()" class="help"><img ng-class="{hidden: shhowHelp}"src="static/img/Help_icon.png"></button>
+<button ng-class="{hidden: !showHelp}" ng-click="closePage()" class="closePage"><img sng-class="{hidden: !showHelp}" src="static/img/close_icon.png"></button>
+<button ng-class="{hidden: !showHelp}" ng-click="seeTutorial()" class="seeTutorial"><img ng-class="{hidden: !showHelp}"src="static/img/See_tutorial_button.png"></button>

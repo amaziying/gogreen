@@ -48,7 +48,7 @@ function weightService ($timeout, $http) {
 
     function pollServer() {
         $http.get('/api/data').then(function (weight) {
-            var latestWeight = parseInt(weight.data, 10);
+            var latestWeight = parseFloat(weight.data);
             if (currentWeight !== latestWeight) {
                 currentWeight = latestWeight;
                 changedWeight(currentWeight);

@@ -5,7 +5,8 @@ import smartTable from 'angular-smart-table';
 import ngAnimate from 'angular-animate';
 import config from './config';
 import homeController from './controllers/homeController';
-import historyController from './controllers/historyController';
+import tutorialController from './controllers/tutorialController';
+import tutorialTwoController from './controllers/tutorialTwoController';
 import mainController from './controllers/mainController';
 import plantController from './controllers/plantController';
 import communityController from './controllers/communityController';
@@ -23,10 +24,11 @@ var app = angular.module(moduleName, [
   .factory('scoringService', ['$timeout', 'weightService', scoringService])
   .factory('weightService', ['$timeout', '$http', weightService])
   .factory('plantService', ['scoringService', plantService])
-  .controller('historyController', historyController)
+  .controller('tutorialController', ['$scope', '$http','$location', 'scoringService',tutorialController])
+  .controller('tutorialTwoController', ['$scope', '$http','$location', 'scoringService',tutorialTwoController])
   .controller('mainController', ['$scope', '$http','$location', 'scoringService', mainController])
-  .controller('homeController', ['$scope', '$http', '$timeout', 'scoringService', 'weightService', homeController])
-  .controller('plantController', ['$scope', '$http', 'scoringService', 'plantService', plantController])
-  .controller('communityController', ['$scope', '$http', 'orderByFilter', 'scoringService', communityController]);
+  .controller('homeController', ['$scope', '$http', '$location', '$timeout', 'scoringService', 'weightService', 'plantService', homeController])
+  .controller('plantController', ['$scope', '$http', '$location', 'scoringService', 'plantService', plantController])
+  .controller('communityController', ['$scope', '$http', 'orderByFilter', 'scoringService','plantService', communityController]);
 
 export default moduleName;

@@ -1,7 +1,24 @@
-function homeController($scope, $http, $timeout, scoringService, weightService){
+function homeController($scope, $http, $location, $timeout, scoringService, weightService, plantService){
+    // tutorial
+    $scope.showHelp = false;
+
+    $scope.help = function(){
+        $scope.showHelp = true;
+    };
+
+    $scope.closePage = function(){
+        $scope.showHelp = false;
+    };
+
+    $scope.seeTutorial = function(){
+        $location.path('/tutorial2');
+        $scope.showHelp = false;
+    };
+
     //initialize homecontroller
     $scope.showScoreUpdate = false;
     $scope.level = weightService.getCurrentWeightLevel();
+    $scope.treesPlanted = plantService.getTreesPlanted();
 
     function syncCountdownTimer() {
         $scope.countdownTimer = formatTimer(scoringService.getCountdown());

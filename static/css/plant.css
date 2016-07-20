@@ -163,18 +163,30 @@
 		background-image: url(../img/plant/Maple_Tree.png);
 	}
 	.arrows-container {
+		height: 40px;
 		width: 74%;
 		margin: 0 auto;
 	}
-	.left-arrow {
+	.arrow {
+		border-top: 20px solid transparent;
+		border-bottom: 20px solid transparent;	
+		width: 0px;
+		height: 40px;
+		background: transparent;
+	}
+	.left-arrow {	
+		border-right: 20px solid #fff;
 		float: left;
+		margin-left: 10px;
 	}
 	.right-arrow {
+		border-left: 20px solid #fff;
 		float: right;
+		margin-right: 10px
 	}
 	.buy-seeds {
 		width: 180px;
 		height: 60px;
 		margin: 0 auto;
-		margin-top: 20.8%;
+		margin-top: 173px;
 	}
