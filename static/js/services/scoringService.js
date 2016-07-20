@@ -30,7 +30,7 @@ function scoringService ($timeout, weightService) {
         minScore: 4000,
         nextLevelScore: 10000,
         level: 5,
-        levelName: 'Green Grand Master'
+        levelName: 'Green Giant'
     }];
 
 
