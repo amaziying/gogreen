@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function homeController($scope, $http, $location, $timeout, scoringService){
 	//initialize homecontroller
 	$scope.showScoreUpdate = false;
@@ -34,25 +35,20 @@ function homeController($scope, $http, $location, $timeout, scoringService){
 		}
 	};
 
-	function updateScore(newScore) {
-		$scope.score = newScore;
-		$scope.showScoreUpdate = true;
-		$timeout(function() {
-			$scope.showScoreUpdate = false;
-		}, 1000);
-	}
+    function updateScore(newScore) {
+        $scope.score = newScore;
+        $scope.showScoreUpdate = true;
+        $timeout(function() {
+            $scope.showScoreUpdate = false;
+        }, 1000);
+    }
 
+    scoringService.subscribe(updateScore);
 
-	function updateWeightLevel(low) {
-
-	}
-
-	scoringService.subscribe(updateScore);
-
-	$scope.statusLevel = 'med';
-	$scope.countdown = '00:10:45';
-	$scope.pointIncrementLevel = 50;
-	$scope.treesPlanted = 20;
+    $scope.statusLevel = 'med';
+    $scope.countdown = '00:10:45';
+    $scope.pointIncrementLevel = 50;
+    $scope.treesPlanted = 20;
 };
 
 export default homeController;

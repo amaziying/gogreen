@@ -5,9 +5,9 @@ function plantController($scope, $http, $location, scoringService){
 	$scope.toolActive = -1; // 0=water, 1=shovel, 2=oakseed, 3=evergreenseed, 4=mapleseed
 	$scope.selectedSeed = -1;
 
-	$scope.oak_code = 2;
-	$scope.evergreen_code = 3;
-	$scope.maple_code = 4;
+	$scope.oak_code = plantService.oak_code;
+	$scope.evergreen_code = plantService.evergreen_code;
+	$scope.maple_code = plantService.maple_code;
 
 	var shovelCost = 10;
 	var waterCost = 15;
@@ -53,35 +53,24 @@ function plantController($scope, $http, $location, scoringService){
 		{
 			"treeCode" : $scope.oak_code,
 			"imgName:": "Oak_seed",
-		 	"amount": 1,
+		 	"amount": plantService.getSeedsAmount()[$scope.oak_code],
 		 	"name": "Oak Tree"
 		},
 		{
 			"treeCode" : $scope.evergreen_code,
 			"imgName:": "Evergreen_seed",
-		 	"amount": 1,
+		 	"amount": plantService.getSeedsAmount()[$scope.evergreen_code],
 		 	"name": "Evergreen Tree"
 		},
 		{
 			"treeCode" : $scope.maple_code,
 			"imgName:": "Maple_seed",
-		 	"amount": 1,
+		 	"amount": plantService.getSeedsAmount()[$scope.maple_code],
 		 	"name": "Maple Tree"
 		}
 	];
 
-	$scope.grid = [];
-
-	// initialize the values for the grid
-	for(var i = 0; i < 5; i++){
-		$scope.grid[i] = [];
-		for(var j = 0; j < 7; j++){
-			$scope.grid[i][j] = {
-				"type": "", // 0=oak, 1=evergreen, 2=maple
-				"state": 0 // 0=nothing, 1=mound, 2=sprout, 3=oak, 4=evergreen, 5=maple
-			}
-		}
-	}
+	$scope.grid = plantService.getGrid();
 
 	$scope.plantTree = function(cell){
 		if(cell.state == 0){
@@ -99,8 +88,9 @@ function plantController($scope, $http, $location, scoringService){
 		}
 		else if(cell.state == 1){
 			if($scope.toolActive >= $scope.oak_code){
-				if($scope.seeds[$scope.toolActive-2].amount > 0){
-					$scope.seeds[$scope.toolActive-2].amount--;
+				if($scope.seeds[$scope.toolActive-$scope.oak_code].amount > 0){
+					plantService.decrementSeedsAmount($scope.toolActive);
+					$scope.seeds[$scope.toolActive-$scope.oak_code].amount = plantService.getSeedsAmount()[$scope.toolActive];
 					cell.state = 2;
 					cell.type = $scope.toolActive;
 				} else {
@@ -132,6 +122,7 @@ function plantController($scope, $http, $location, scoringService){
 				alert(waterReminder);
 			}
 		}
+		plantService.setGrid($scope.grid);
 	};
 
 	$scope.browseSeeds = function(){
@@ -142,8 +133,9 @@ function plantController($scope, $http, $location, scoringService){
 		if($scope.currentSeedPage >= 0){
 			if(scoringService.getScore() >= seedCost) {
 				scoringService.consumeScore(seedCost);
-				$scope.seeds[$scope.currentSeedPage].amount++;
-				$scope.currentSeedPage = -1;
+				plantService.incrementSeedsAmount($scope.currentSeedPage+$scope.oak_code);
+				$scope.seeds[$scope.currentSeedPage].amount = plantService.getSeedsAmount()[$scope.currentSeedPage+2];
+				$scope.currentSeedPage = -1;	
 			} else {
 				alert(noMorePointsReminder);
 			}

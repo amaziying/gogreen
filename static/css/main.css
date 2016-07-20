@@ -3,6 +3,7 @@ body {
 }
 
 header.score-bar-container {
+    width: 100%;
     margin: 0;
     padding: 0;
     background-color: #6cb0a4;
@@ -96,11 +97,11 @@ div#user-level {
 .nav-ul{
     padding: 0;
     width: 100%;
-    display: inline-block;
+    display: block;
 }
 
 .nav-ul li{
-    width: 33.07%;
+    width: 33%;
     display: inline-block;
     line-height: 98px;
     /*vertical-align: middle;*/
@@ -234,6 +235,15 @@ div#user-level {
     height: 20px;
     border-radius: 10px;
 }
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+
+.animate-show.ng-hide {
+  opacity: 0;
+}
+
 
 .green {
     color: #92c350;

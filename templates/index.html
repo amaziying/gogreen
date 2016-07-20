@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="viewport" content="width=device-width"/>
     	<title>Go Green</title>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         <script src="static/bundle.js"></script>
+                <script src="//rawgit.com/indrimuska/angular-counter/master/js/angular-counter-with-easing.min.js"></script>
         <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 
         <!-- Latest compiled and minified JavaScript -->
         <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
@@ -22,7 +26,7 @@
     <body ng-app="app" ng-controller="mainController">
         <header class="score-bar-container">
             <img id="point-icon" src="static/img/Point_icon.png">
-            <div class="score-bar-textbox">{{score}}</div>
+            <div class="score-bar-textbox counter" to="score" value="countUpScore" >{{countUpScore | number:0}}</div>
             <div id="user-level">{{userLevel.level}}</div>
             <div class="score-bar-textbox score-bar-level">{{userLevel.levelName}}</div>
             <div class="progress-bar-element" ng-repeat="progressElem in progressBar">
@@ -46,10 +50,6 @@
             </div>
           </nav>
         </div>
-
-        <!-- <div class='tutorial' id="two"></div>
-        <div class='tutorial' id="three"></div>
-        <div class='tutorial' id="four"></div> -->
 	</body>
 
 </html>
