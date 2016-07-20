@@ -143,5 +143,9 @@
 .left-align{
   text-align: left;
   position: relative;
-  left: 9%;
+  left: 12%;
+}
+
+.left-align img{
+  height: 60px;
 }
