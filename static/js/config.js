@@ -12,9 +12,13 @@ function config($routeProvider, $locationProvider, $httpProvider) {
           templateUrl: 'static/views/community.html',
           controller: 'communityController'
       })
-      .when('/history', {
-          templateUrl: 'static/views/history.html',
-          controller: 'historyController'
+      .when('/tutorial', {
+          templateUrl: 'static/views/tutorial.html',
+          controller: 'tutorialController'
+      })
+      .when('/tutorial2', {
+          templateUrl: 'static/views/tutorialTwo.html',
+          controller: 'tutorialTwoController'
       })
       .otherwise({
           redirectTo: '/'
