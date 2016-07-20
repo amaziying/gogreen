@@ -1,6 +1,6 @@
 	.plant {
 		background-color: #a7d85b;
-		padding: 55px;
+		padding: 30px 30px 120px 30px;
 		font-size: 18px;
 		font-weight: bold;
 	}
@@ -14,14 +14,14 @@
 		width: 100%;
 	}
 	.sandbox {
-		background-image: url(../img/plant/sandbox.png);
+		background-image: url(../img/plant/Sandbox.png);
 		background-size: 280px 215px;
 		height: 215px;
 		margin: 10px 0px;
 		padding: 10%;
 	}
 	.seedbox {
-		background-image: url(../img/plant/picnic.png);
+		background-image: url(../img/plant/Picnic.png);
 		background-size: 280px 250px;		
 		height: 250px;
 		padding: 8% 12%;
