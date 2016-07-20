@@ -1,6 +1,10 @@
-function scoringService ($timeout) {
+function scoringService ($timeout, weightService) {
     var subscriptions = [];
     var currentScore = 0;
+    var currentWeightLevel = weightService.getCurrentWeightLevel();
+
+    var totalTime = 10;
+    var countdown = totalTime;
 
     var levels = [{
         minScore: 0,
@@ -24,22 +28,34 @@ function scoringService ($timeout) {
         levelName: 'Green Master'
     }];
 
+
     function pushToSubscribers() {
         subscriptions.forEach(function(callback) {
             callback(currentScore);
         });
     }
 
-    function incrementScore() {
-        currentScore += 50;
-        pushToSubscribers();
+    function changedWeightLevel(newWeightLevel) {
+        currentWeightLevel = newWeightLevel;
+    }
+
+    weightService.subscribe(changedWeightLevel);
+
+    function countdownTimer() {
+        countdown--;
+        console.log(countdown);
+        if (countdown === 0) {
+            countdown = totalTime;
+            currentScore += currentWeightLevel.pointIncrement;
+            pushToSubscribers();
+        }
 
         if (currentScore < 4000) {
-            $timeout(incrementScore, 3000);
+            $timeout(countdownTimer, 1000);
         }
     }
 
-    incrementScore();
+    countdownTimer();
 
     return {
         subscribe: function (callback) {
@@ -60,6 +76,9 @@ function scoringService ($timeout) {
                     return levels[i];
                 }
             }
+        },
+        getCountdown: function () {
+            return countdown;
         },
         getGoalMetrics: function () {
             var userLevel = this.getUserLevel();

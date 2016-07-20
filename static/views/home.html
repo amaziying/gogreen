@@ -1,7 +1,7 @@
 <div class="playground-container">
 	<div class="garbage-container">
-		<img class="garbage-can" ng-src="static/img/Playground_garbage_{{statusLevel}}.png">
-		<div ng-show="showScoreUpdate" ng-class="levels[statusLevel].className" class="animate-show score-pop-up">+{{pointIncrementLevel}}</div>
+		<img class="garbage-can" ng-src="static/img/Playground_garbage_{{level.id}}.png">
+		<div ng-show="showScoreUpdate" ng-class="level.className" class="animate-show score-pop-up">+{{level.pointIncrement}}</div>
 	</div>
 	<div class="status-container">
 		<div class="status-info container">
@@ -9,17 +9,17 @@
 				<div style="padding-top:8px;" class="col-md-offset-1 col-md-6 status-info-title">SCORE</div>
 				<div class="col-md-4 status-info-number counter" value="shownScore" to="score">{{shownScore | number:0}}</div>
 			</div>
-			<p class="status-info-timer">(<span style="font-weight:600;">{{countdown}}</span> until <span ng-class="levels[statusLevel].className">+{{pointIncrementLevel}}</span> points)</p>
+			<p class="status-info-timer">(<span style="font-weight:600;">{{countdownTimer}}</span> until <span ng-class="level.className">+{{level.pointIncrement}}</span> points)</p>
 			<div style="padding-top:40px;" class="row">
 				<div class="col-md-offset-1 col-md-6 status-info-title">TREES PLANTED</div>
 				<div style="padding-top:15px;" class="col-md-offset-1 col-md-4 status-info-number">{{treesPlanted}}</div>
 			</div>
 			<div style="padding-top:40px;" class="row">
 				<div class="col-md-offset-1 col-md-5 status-info-title" style="padding-top:5px;">STATUS</div>
-				<div class="col-md-1" style="padding-top: 15px;"><div ng-class="levels[statusLevel].className + '-background'" class="status-level-indicator"></div></div>
-				<div ng-class="levels[statusLevel].className" class="col-md-4 status-info-number">{{statusLevel}}</div>
+				<div class="col-md-1" style="padding-top: 15px;"><div ng-class="level.className + '-background'" class="status-level-indicator"></div></div>
+				<div ng-class="level.className" style="font-size:26px; padding-top:7px;" class="col-md-4 status-info-number">{{level.prettyName}}</div>
 			</div>
-			<p class="status-info-timer">{{levels[statusLevel].message}}</p>
+			<p class="status-info-timer">{{level.message}}</p>
 		</div>
 	</div>
 </div>
